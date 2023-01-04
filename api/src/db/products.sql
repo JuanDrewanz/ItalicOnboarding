@@ -26,3 +26,18 @@ VALUES ('macBook Pro 16in', 1, 4.3, 18, 1980.00, '{ "dimensions": "355.7 mm x 24
 
 INSERT INTO products (title, category, avg_rating, reviews_count, price, specifications, imageURL)
 VALUES ('Samsung Galaxy Z Flip 4', 1, 3.9, 41, 490.00, '{ "dimensions": "165.2 mm x 71.9 mm x 6.9 mm", "weight": "197 g", "material": "various", "color": "graphite", "origin": "South Korea"}','https://images.samsung.com/mx/smartphones/galaxy-z-flip4/buy/Flip4_Carousel_ProductKV_Graphite_MO.jpg');
+
+
+-- CAT 2 'home'
+
+INSERT INTO products (title, category, avg_rating, reviews_count, price, specifications, imageURL)
+VALUES ('Luxurious Goose Down Pillow - 500 Thread Count Egyptian Cotton, Soft, Standard Size, Set of 2', 2, 4.9, 120, 62.90, '{ "dimensions": "20 in x 28 in", "weight": "200 g", "material": "Goose Down", "color": "white", "origin": "USA"}','https://m.media-amazon.com/images/I/41TDPW-8p6L._AC_SL1024_.jpg');
+
+INSERT INTO products (title, category, avg_rating, reviews_count, price, specifications, imageURL)
+VALUES ('Kids Carpet Playmat Rug City Life Great for Playing with Cars and Toys', 2, 2.3, 25, 23.60, '{ "dimensions": "60 in x 32 in", "weight": "200 g", "material": "Rubber", "color": "Red, Green, Yellow, Blue, Grey, Black, White", "origin": "Canada"}','https://m.media-amazon.com/images/I/91lZBQLzUJL._AC_SL1500_.jpg');
+
+INSERT INTO products (title, category, avg_rating, reviews_count, price, specifications, imageURL)
+VALUES ('Stupell Industries London Rectangular White Framed Mirror, 16" x 20"', 2, 3.7, 15, 60.90, '{ "dimensions": "16 in x 20 in", "weight": "700 g", "material": "Wood and glass", "color": "White", "origin": "USA"}','https://m.media-amazon.com/images/I/61QjlDJtnVL._AC_SL1500_.jpg');
+
+INSERT INTO products (title, category, avg_rating, reviews_count, price, specifications, imageURL)
+VALUES ('Easy-Going Reversible Couch Cover for 3 Cushion Couch Sofa Cover for Dogs Water Resistant Furniture Protector Cover with Foam Sticks Elastic Straps for Kids Children Dog Cat', 2, 1.5, 19, 39.90, '{ "dimensions": "11.18"D x 11.89"W x 6.5"H", "weight": "300 g", "material": "Polyester", "color": "Gray/Light Gray", "origin": "USA"}','https://m.media-amazon.com/images/I/61zOPFYJusL._AC_SL1500_.jpg');
