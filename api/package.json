@@ -2,12 +2,12 @@
   "name": "api",
   "version": "1.0.0",
   "description": "graphql api for italic onboarding e-commerce site",
-  "main": "server.js",
+  "main": "dist/server.js",
   "type": "module",
   "scripts": {
     "compile": "tsc",
-    "start": "node server.js",
-    "dev": "npm run compile && node ./dist/server.js"
+    "start": "tsc && node dist/server.js",
+    "dev": "npm run compile && node /dist/server.js"
   },
   "author": "Juan Drewanz",
   "license": "ISC",
