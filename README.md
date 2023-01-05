@@ -1,2 +1,3 @@
 # ItalicOnboarding
-two page e-commerce app for onboarding purposes 
+
+two page e-commerce app for onboarding purposes -
