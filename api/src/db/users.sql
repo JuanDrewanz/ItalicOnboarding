@@ -4,5 +4,8 @@ create table users (
     email TEXT unique,
     is_active BOOLEAN,
     is_banned BOOLEAN,
-    password TEXT not null
+    password TEXT not null,
+    token TEXT
 );
+
+SELECT id from users WHERE email = 'juandrewanz@gmail.com';

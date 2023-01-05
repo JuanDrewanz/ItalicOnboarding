@@ -28,4 +28,24 @@ export const typeDefinitions = gql`
     specifications: Specifications
     imageURL: String
   }
+  type User {
+    id: Int
+    username: String
+    email: String
+    is_active: Boolean
+    is_banned: Boolean
+    toke: String
+  }
+  input userRegisterData {
+    username: String
+    email: String
+    password: String
+  }
+  input userLoginData {
+    email: String
+    password: String
+  }
+  type Mutation {
+    registerUser(user: userRegisterData): User
+  }
 `;
