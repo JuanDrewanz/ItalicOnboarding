@@ -40,4 +40,4 @@ INSERT INTO products (title, category, avg_rating, reviews_count, price, specifi
 VALUES ('Stupell Industries London Rectangular White Framed Mirror, 16" x 20"', 2, 3.7, 15, 60.90, '{ "dimensions": "16 in x 20 in", "weight": "700 g", "material": "Wood and glass", "color": "White", "origin": "USA"}','https://m.media-amazon.com/images/I/61QjlDJtnVL._AC_SL1500_.jpg');
 
 INSERT INTO products (title, category, avg_rating, reviews_count, price, specifications, imageURL)
-VALUES ('Easy-Going Reversible Couch Cover for 3 Cushion Couch Sofa Cover for Dogs Water Resistant Furniture Protector Cover with Foam Sticks Elastic Straps for Kids Children Dog Cat', 2, 1.5, 19, 39.90, '{ "dimensions": "11.18"D x 11.89"W x 6.5"H", "weight": "300 g", "material": "Polyester", "color": "Gray/Light Gray", "origin": "USA"}','https://m.media-amazon.com/images/I/61zOPFYJusL._AC_SL1500_.jpg');
+VALUES ('Easy-Going Reversible Couch Cover for 3 Cushion Couch Sofa', 2, 1.5, 19, 39.90, '{ "dimensions": "11.18in x 11.89in x 6.5in", "weight": "300 g", "material": "Polyester", "color": "Gray/Light Gray", "origin": "USA"}','https://m.media-amazon.com/images/I/61zOPFYJusL._AC_SL1500_.jpg');
