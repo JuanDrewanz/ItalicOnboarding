@@ -26,18 +26,18 @@ async function connectToDb() {
 }
 
 //EXAMPLE CREATE USER
-async function createUser(username: string, email: string) {
-  var sql = `INSERT into users (username,email,is_active,is_banned,password) VALUES ('${username}','${email}',true,false,'secretpw') RETURNING *`;
-  // var newUser;
-  // db.query(sql, function (err, res) {
-  //   if (err) throw err;
-  //   console.log('logue esto', res.rows[0]);
-  //   newUser = res.rows[0];
-  // });
-  // console.log('retorna esto', newUser);
-  const newUser = await db.query(sql);
-  console.log('el nuevo usuario es: ', newUser.rows[0]);
-}
+// async function createUser(username: string, email: string) {
+//   var sql = `INSERT into users (username,email,is_active,is_banned,password) VALUES ('${username}','${email}',true,false,'secretpw') RETURNING *`;
+// var newUser;
+// db.query(sql, function (err, res) {
+//   if (err) throw err;
+//   console.log('logue esto', res.rows[0]);
+//   newUser = res.rows[0];
+// });
+// console.log('retorna esto', newUser);
+//   const newUser = await db.query(sql);
+//   console.log('el nuevo usuario es: ', newUser.rows[0]);
+// }
 
 connectToDb();
-createUser('mariana', 'mari@gmail.com');
+// createUser('mariana', 'mari@gmail.com');

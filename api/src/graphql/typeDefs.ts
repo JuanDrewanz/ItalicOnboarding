@@ -6,6 +6,7 @@ export const typeDefinitions = gql`
     getCategories: [Categories]
     getProductsByArg(catId: Int): [Products]
     searchProduct(title: String): [Products]
+    user(id: Int!): User
   }
   type Specifications {
     dimensions: String
@@ -34,7 +35,8 @@ export const typeDefinitions = gql`
     email: String
     is_active: Boolean
     is_banned: Boolean
-    toke: String
+    password: String
+    token: String
   }
   input userRegisterData {
     username: String
@@ -47,5 +49,6 @@ export const typeDefinitions = gql`
   }
   type Mutation {
     registerUser(user: userRegisterData): User
+    loginUser(user: userLoginData): User
   }
 `;
