@@ -27,7 +27,7 @@ export const typeDefinitions = gql`
     reviews_count: Int
     price: Float
     specifications: Specifications
-    imageURL: String
+    imageurl: String
   }
   type User {
     id: Int
