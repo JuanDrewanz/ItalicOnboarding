@@ -14,6 +14,15 @@ export const GET_PRODUCTS = gql`
   }
 `;
 
+export const GET_CATEGORIES = gql`
+  query Query {
+    getCategories {
+      id
+      name
+    }
+  }
+`;
+
 export const GET_PRODUCTS_BY_CAT = gql`
   query Query($catId: Int) {
     getProductsByCat(catId: $catId) {
@@ -44,6 +53,26 @@ export const GET_PRODUCT_BY_ID = gql`
         material
         origin
         weight
+      }
+    }
+  }
+`;
+
+export const SEARCH_PRODUCT = gql`
+  query Query($title: String) {
+    searchProduct(title: $title) {
+      avg_rating
+      category
+      id
+      imageurl
+      price
+      reviews_count
+      specifications {
+        weight
+        origin
+        material
+        dimensions
+        color
       }
     }
   }
