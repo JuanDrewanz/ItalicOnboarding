@@ -14,7 +14,7 @@ export default function ProductCard({
   }
 
   return (
-    <div className='py-6'>
+    <div className='py-6 m-6 h-300 w-2/7'>
       <div className='flex max-w-md bg-white shadow-lg rounded-lg overflow-hidden'>
         <div className='w-2/5'>
           <img src={imageurl} width='150px' height='180px'></img>
@@ -22,8 +22,7 @@ export default function ProductCard({
         <div className='w-2/3 p-4'>
           <h1 className='text-gray-900 font-bold text-2xl'>{title}</h1>
           <p className='mt-2 text-gray-600 text-sm'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit In odit
-            exercitationem fuga id nam quia
+            Lorem ipsum dolor sit amet
           </p>
           <div className='flex item-center mt-2'>
             <svg

@@ -22,9 +22,17 @@ function GetProducts({ catId }) {
 
   console.log(data, loading, error);
 
-  return data.getProductsByCat.map(({ title, price, imageurl }) => (
-    <ProductCard title={title} price={price} imageurl={imageurl} />
-  ));
+  return data.getProductsByCat.map(
+    ({ id, title, price, imageurl, avg_rating }) => (
+      <ProductCard
+        id={id}
+        title={title}
+        price={price}
+        imageurl={imageurl}
+        avg_rating={avg_rating}
+      />
+    )
+  );
 }
 
 export default function Products() {
@@ -33,10 +41,9 @@ export default function Products() {
   const category = parseInt(catId);
 
   return (
-    <div className='w-screen flex-wrap'>
+    <div className='w-screen'>
       <NavBar />
-      <h1>Products</h1>
-      <div>
+      <div className='flex flex-wrap'>
         <GetProducts catId={category} />
       </div>
     </div>

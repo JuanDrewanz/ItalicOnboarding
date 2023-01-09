@@ -27,7 +27,6 @@ function GetDetails({ prodId }) {
     data.getProductById.specifications;
   return (
     <div>
-      <h1>Holis</h1>
       <ProductDetail
         title={title}
         avg_rating={avg_rating}
@@ -51,10 +50,12 @@ export default function DetailHome() {
   const { prodId } = router.query;
   const prodId_int: number = parseInt(prodId);
 
+  console.log('pord id', prodId);
+  console.log('prodId_int', prodId_int);
+
   return (
     <div className='justify-center flex flex-col w-screen'>
       <NavBar />
-      <h1>Product Detail</h1>
       <GetDetails prodId={prodId_int} />
     </div>
   );

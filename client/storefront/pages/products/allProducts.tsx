@@ -23,10 +23,9 @@ function GetProducts() {
 
 export default function Products() {
   return (
-    <div className='w-screen flex-wrap'>
+    <div className='w-screen'>
       <NavBar />
-      <h1>Products</h1>
-      <div>
+      <div className='w-screen flex flex-wrap'>
         <GetProducts />
       </div>
     </div>
