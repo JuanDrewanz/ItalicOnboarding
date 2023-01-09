@@ -5,6 +5,7 @@ export const typeDefinitions = gql`
     getProducts: [Products]
     getCategories: [Categories]
     getProductsByCat(catId: Int): [Products]
+    getProductById(prodId: Int): Products
     searchProduct(title: String): [Products]
     user(id: Int!): User
   }

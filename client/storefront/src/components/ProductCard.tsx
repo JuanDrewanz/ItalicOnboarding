@@ -1,4 +1,18 @@
-export default function ProductCard({ title, price, imageurl }) {
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+
+export default function ProductCard({
+  id,
+  title,
+  price,
+  imageurl,
+  avg_rating,
+}) {
+  const router = useRouter();
+  function redirect(id) {
+    router.push(`/products/detail/${id}`);
+  }
+
   return (
     <div className='py-6'>
       <div className='flex max-w-md bg-white shadow-lg rounded-lg overflow-hidden'>
@@ -42,11 +56,15 @@ export default function ProductCard({ title, price, imageurl }) {
             >
               <path d='M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z' />
             </svg>
+            <p className='text-sm fill-current text-gray-500'>{avg_rating}</p>
           </div>
           <div className='flex item-center justify-between mt-3'>
             <h1 className='text-gray-700 font-bold text-xl'>${price}</h1>
-            <button className='px-3 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded'>
-              Add to Card
+            <button
+              onClick={() => redirect(id)}
+              className='px-3 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded'
+            >
+              View details
             </button>
           </div>
         </div>

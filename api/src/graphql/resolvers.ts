@@ -21,6 +21,14 @@ export const resolvers = {
         console.log('Data not found');
       }
     },
+    async getProductById(_, args) {
+      try {
+        const products = await pool.query('SELECT * from products');
+        return products.rows.find((prod) => prod.id === args.prodId);
+      } catch (e) {
+        console.log('Data not found');
+      }
+    },
     async getProductsByCat(_, args) {
       try {
         const products = await pool.query('SELECT * from products');

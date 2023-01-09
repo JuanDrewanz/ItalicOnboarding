@@ -3,6 +3,7 @@ import client from '../../apolo-client';
 import ProductCard from '../../src/components/ProductCard';
 import { GET_PRODUCTS_BY_CAT } from '../../src/queries/queries';
 import { useRouter } from 'next/router';
+import NavBar from '../../src/components/NavBar';
 
 export async function getServerSideProps() {
   return {
@@ -33,6 +34,7 @@ export default function Products() {
 
   return (
     <div className='w-screen flex-wrap'>
+      <NavBar />
       <h1>Products</h1>
       <div>
         <GetProducts catId={category} />
