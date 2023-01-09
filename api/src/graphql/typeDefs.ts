@@ -4,7 +4,7 @@ export const typeDefinitions = gql`
   type Query {
     getProducts: [Products]
     getCategories: [Categories]
-    getProductsByArg(catId: Int): [Products]
+    getProductsByCat(catId: Int): [Products]
     searchProduct(title: String): [Products]
     user(id: Int!): User
   }

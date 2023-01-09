@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client';
-import client from '../apolo-client';
-import ProductCard from '../src/components/ProductCard';
-import { GET_PRODUCTS } from '../src/queries/queries';
+import client from '../../apolo-client';
+import ProductCard from '../../src/components/ProductCard';
+import { GET_PRODUCTS } from '../../src/queries/queries';
 
 function GetProducts() {
   const { loading, error, data } = useQuery(GET_PRODUCTS, { client: client });
@@ -20,9 +20,6 @@ export default function Products() {
       <h1>Products</h1>
       <div>
         <GetProducts />
-        {/* <ProductCard title='remera' />
-        <ProductCard title='campera' />
-        <ProductCard title='mochila' /> */}
       </div>
     </div>
   );

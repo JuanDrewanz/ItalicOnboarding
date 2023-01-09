@@ -21,7 +21,7 @@ export const resolvers = {
         console.log('Data not found');
       }
     },
-    async getProductsByArg(_, args) {
+    async getProductsByCat(_, args) {
       try {
         const products = await pool.query('SELECT * from products');
         return products.rows.filter((prod) => prod.category === args.catId);

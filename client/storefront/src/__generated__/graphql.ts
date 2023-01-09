@@ -51,13 +51,13 @@ export type Query = {
   __typename?: 'Query';
   getCategories?: Maybe<Array<Maybe<Categories>>>;
   getProducts?: Maybe<Array<Maybe<Products>>>;
-  getProductsByArg?: Maybe<Array<Maybe<Products>>>;
+  getProductsByCat?: Maybe<Array<Maybe<Products>>>;
   searchProduct?: Maybe<Array<Maybe<Products>>>;
   user?: Maybe<User>;
 };
 
 
-export type QueryGetProductsByArgArgs = {
+export type QueryGetProductsByCatArgs = {
   catId?: InputMaybe<Scalars['Int']>;
 };
 

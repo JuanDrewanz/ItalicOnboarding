@@ -13,3 +13,13 @@ export const GET_PRODUCTS = gql`
     }
   }
 `;
+
+export const GET_PRODUCTS_BY_CAT = gql`
+  query Query($catId: Int) {
+    getProductsByCat(catId: $catId) {
+      title
+      price
+      imageurl
+    }
+  }
+`;
