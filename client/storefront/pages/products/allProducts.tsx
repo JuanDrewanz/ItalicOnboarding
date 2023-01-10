@@ -23,7 +23,7 @@ function GetProducts() {
 
 export default function Products() {
   return (
-    <div className='w-screen'>
+    <div className='w-screen bg-gray-100 h-full'>
       <NavBar />
       <div className='w-screen flex flex-wrap'>
         <GetProducts />

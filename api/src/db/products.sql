@@ -31,7 +31,7 @@ VALUES ('Samsung Galaxy Z Flip 4', 1, 3.9, 41, 490.00, '{ "dimensions": "165.2 m
 -- CAT 2 'home'
 
 INSERT INTO products (title, category, avg_rating, reviews_count, price, specifications, imageURL)
-VALUES ('Luxurious Goose Down Pillow - 500 Thread Count Egyptian Cotton, Soft, Standard Size, Set of 2', 2, 4.9, 120, 62.90, '{ "dimensions": "20 in x 28 in", "weight": "200 g", "material": "Goose Down", "color": "white", "origin": "USA"}','https://m.media-amazon.com/images/I/41TDPW-8p6L._AC_SL1024_.jpg');
+VALUES ('Luxurious Goose Down Pillow - 500 Thread Count Egyptian Cotton', 2, 4.9, 120, 62.90, '{ "dimensions": "20 in x 28 in", "weight": "200 g", "material": "Goose Down - Egyptian cotton", "color": "white", "origin": "USA"}','https://m.media-amazon.com/images/I/41TDPW-8p6L._AC_SL1024_.jpg');
 
 INSERT INTO products (title, category, avg_rating, reviews_count, price, specifications, imageURL)
 VALUES ('Kids Carpet Playmat Rug City Life Great for Playing with Cars and Toys', 2, 2.3, 25, 23.60, '{ "dimensions": "60 in x 32 in", "weight": "200 g", "material": "Rubber", "color": "Red, Green, Yellow, Blue, Grey, Black, White", "origin": "Canada"}','https://m.media-amazon.com/images/I/91lZBQLzUJL._AC_SL1500_.jpg');
@@ -41,3 +41,17 @@ VALUES ('Stupell Industries London Rectangular White Framed Mirror, 16" x 20"', 
 
 INSERT INTO products (title, category, avg_rating, reviews_count, price, specifications, imageURL)
 VALUES ('Easy-Going Reversible Couch Cover for 3 Cushion Couch Sofa', 2, 1.5, 19, 39.90, '{ "dimensions": "11.18in x 11.89in x 6.5in", "weight": "300 g", "material": "Polyester", "color": "Gray/Light Gray", "origin": "USA"}','https://m.media-amazon.com/images/I/61zOPFYJusL._AC_SL1500_.jpg');
+
+-- CAT 3 'sports'
+
+INSERT INTO products (title, category, avg_rating, reviews_count, price, specifications, imageURL)
+VALUES ('Nike Running Shoe - men', 3, 4.2, 115, 49.90, '{ "dimensions": "13.62 x 9.29 x 4.72 inches", "weight": "3,2 kg", "material": "Fabric", "color": "black", "origin": "Taiwan"}','https://m.media-amazon.com/images/I/71WqW1URHtL._AC_UX695_.jpg');
+
+INSERT INTO products (title, category, avg_rating, reviews_count, price, specifications, imageURL)
+VALUES ('WILSON Adult Performance Tennis Rackets', 3, 4.6, 95, 159.00, '{ "dimensions": "Grip Size 4 - 4 1/2in", "weight": "1,2 kg", "material": "various", "color": "blue", "origin": "Mexico"}','https://m.media-amazon.com/images/I/71M+Crnw+yL._AC_SL1500_.jpg');
+
+INSERT INTO products (title, category, avg_rating, reviews_count, price, specifications, imageURL)
+VALUES ('Under Armour Men Tech 2.0 V-Neck Short-Sleeve T-Shirt', 3, 4.4, 95, 19.99, '{ "dimensions": "from XS to XL", "weight": "200 g", "material": "100% Polyester", "color": "you can choose among 10 colors", "origin": "Japan"}','https://m.media-amazon.com/images/I/51LWeqBz9xL._AC_UX679_.jpg');
+
+INSERT INTO products (title, category, avg_rating, reviews_count, price, specifications, imageURL)
+VALUES ('Surfboard', 3, 3.2, 24, 14.00, '{ "dimensions": "35.67 x 22.05 x 10.08 inches", "weight": "20 kg", "material": "various", "color": "white", "origin": "Hawaii"}','https://m.media-amazon.com/images/I/31kEQ2RlW3L._AC_SL1200_.jpg');

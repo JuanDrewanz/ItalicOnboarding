@@ -54,7 +54,7 @@ export default function DetailHome() {
   console.log('prodId_int', prodId_int);
 
   return (
-    <div className='justify-center flex flex-col w-screen'>
+    <div className='flex flex-col w-screen h-screen'>
       <NavBar />
       <GetDetails prodId={prodId_int} />
     </div>

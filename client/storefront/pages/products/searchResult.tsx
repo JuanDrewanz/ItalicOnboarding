@@ -38,7 +38,7 @@ export default function SearchResult() {
   const { title } = router.query;
 
   return (
-    <div className='w-screen'>
+    <div className='w-screen bg-gray-100 h-screen'>
       <NavBar />
       <div className='w-screen flex flex-wrap'>
         <SearchProducts search={title} />

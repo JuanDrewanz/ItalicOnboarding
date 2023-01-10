@@ -19,7 +19,7 @@ function GetCategories() {
 
 export default function Categories() {
   return (
-    <div className='flex flex-col h-fit justify-center items-center bg-gray-200'>
+    <div className='flex flex-col items-center bg-gray-100 h-screen'>
       <NavBar />
       <h1 className='font-bold text-xl mt-5'>Select a category</h1>
       <GetCategories />

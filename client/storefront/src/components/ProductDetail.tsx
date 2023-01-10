@@ -13,12 +13,12 @@ export default function ProductDetail({
   weight,
 }) {
   return (
-    <div className='py-6 w-full flex'>
-      <div className='flex w-full bg-white shadow-lg rounded-lg overflow-hidden'>
-        <div className='w-1/2'>
-          <img src={imageurl} className='h-auto max-w-full'></img>
+    <div className='py-6 w-full h-screen flex justify-center'>
+      <div className='mt-4 flex w-10/12 bg-white shadow-lg rounded-lg overflow-hidden h-5/6'>
+        <div className='w-7/12 flex flex-col justify-center items-center'>
+          <img src={imageurl} className='object-scale-down h-3/4 w-10/12'></img>
         </div>
-        <div className='m-8 w-1/2 p-4 flex flex-col justify-between'>
+        <div className='m-8 w-5/12 p-4 flex flex-col justify-between'>
           <div>
             <h1 className='text-gray-900 font-bold text-2xl'>{title}</h1>
             <div className='flex item-center mt-2'>
@@ -78,7 +78,7 @@ export default function ProductDetail({
           </div>
           <div className='flex flex-col item-center justify-center items-center mt-3'>
             <h1 className='text-gray-700 font-bold text-xl'>${price}</h1>
-            <button className='px-3 py-2 mt-4 bg-gray-800 text-white text-xs font-bold uppercase rounded'>
+            <button className='w-full px-3 py-2 mt-4 bg-gray-800 text-white text-xs font-bold uppercase rounded'>
               Add to Card
             </button>
           </div>

@@ -16,7 +16,7 @@ export default function Home() {
       <main className='content-center justify-center bg-teal-100'>
         <div className='content-center justify-center'>
           <section>
-            <div className='bg-black text-white py-20 h-full'>
+            <div className='bg-black text-white py-20 h-screen'>
               <div className='container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24'>
                 <div className='flex flex-col w-full lg:w-1/3 justify-center items-start p-8'>
                   <h1 className='text-3xl md:text-5xl p-2 text-teal-500 tracking-loose'>
@@ -32,13 +32,13 @@ export default function Home() {
                   <div className='flex flex-row'>
                     <a
                       href='/categories'
-                      className='bg-transparent hover:bg-teal-300 text-teal-300 hover:text-black rounded shadow hover:shadow-lg py-2 px-4 border border-teal-300 hover:border-transparent'
+                      className='bg-transparent w-24 hover:bg-teal-300 text-teal-300 hover:text-black rounded shadow hover:shadow-lg py-2 px-4 border border-teal-300 hover:border-transparent'
                     >
                       Explore
                     </a>
                     <a
                       href='/login'
-                      className='ml-8 w-20 bg-transparent hover:bg-white text-white-300 hover:text-black rounded shadow hover:shadow-lg py-2 px-4 border border-white-300 hover:border-transparent'
+                      className='ml-8 w-24 bg-transparent hover:bg-white text-white-300 hover:text-black rounded shadow hover:shadow-lg py-2 px-4 border border-white-300 hover:border-transparent'
                     >
                       Login
                     </a>

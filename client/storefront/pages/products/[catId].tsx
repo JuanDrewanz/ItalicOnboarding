@@ -41,9 +41,9 @@ export default function Products() {
   const category = parseInt(catId);
 
   return (
-    <div className='w-screen'>
+    <div className='w-screen bg-gray-100 h-full'>
       <NavBar />
-      <div className='flex flex-wrap'>
+      <div className='flex flex-wrap h-screen'>
         <GetProducts catId={category} />
       </div>
     </div>
