@@ -50,10 +50,16 @@ export type Products = {
 export type Query = {
   __typename?: 'Query';
   getCategories?: Maybe<Array<Maybe<Categories>>>;
+  getProductById?: Maybe<Products>;
   getProducts?: Maybe<Array<Maybe<Products>>>;
   getProductsByCat?: Maybe<Array<Maybe<Products>>>;
   searchProduct?: Maybe<Array<Maybe<Products>>>;
   user?: Maybe<User>;
+};
+
+
+export type QueryGetProductByIdArgs = {
+  prodId?: InputMaybe<Scalars['Int']>;
 };
 
 

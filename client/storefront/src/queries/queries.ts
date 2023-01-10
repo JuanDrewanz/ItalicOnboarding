@@ -61,6 +61,7 @@ export const GET_PRODUCT_BY_ID = gql`
 export const SEARCH_PRODUCT = gql`
   query Query($title: String) {
     searchProduct(title: $title) {
+      title
       avg_rating
       category
       id
