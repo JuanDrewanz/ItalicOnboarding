@@ -78,3 +78,21 @@ export const SEARCH_PRODUCT = gql`
     }
   }
 `;
+
+export const REGISTER_USER = gql`
+  mutation Mutation($user: userRegisterData) {
+    registerUser(user: $user) {
+      username
+      token
+    }
+  }
+`;
+
+export const LOGIN_USER = gql`
+  mutation Mutation($user: userLoginData) {
+    loginUser(user: $user) {
+      email
+      token
+    }
+  }
+`;
