@@ -22,7 +22,7 @@ export default function SearchBar() {
       <form className='flex border-2 rounded' onSubmit={(e) => handleSubmit(e)}>
         <input
           type='text'
-          className='px-4 py-2 w-80 h-8'
+          className='px-4 py-2 w-64 h-8'
           placeholder='Search...'
           value={search}
           onChange={(e) => handleChange(e)}

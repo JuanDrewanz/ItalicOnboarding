@@ -4,6 +4,7 @@ import { startStandaloneServer } from '@apollo/server/standalone';
 import { resolvers } from './graphql/resolvers.js';
 import { pool as db } from './db/connection.js';
 import { typeDefinitions } from './graphql/typeDefs.js';
+import dbSetup from './db/services/dbSetup.js';
 
 const server = new ApolloServer({
   typeDefs: typeDefinitions,
@@ -40,4 +41,5 @@ async function connectToDb() {
 // }
 
 connectToDb();
+// dbSetup();
 // createUser('mariana', 'mari@gmail.com');

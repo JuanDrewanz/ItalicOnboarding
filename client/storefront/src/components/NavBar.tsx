@@ -15,7 +15,12 @@ export default function NavBar() {
           <h2 className='text-white m-10'>Products</h2>
         </Link>
       </div>
-      <SearchBar />
+      <div className='flex flex-row'>
+        <SearchBar />
+        <Link className='text-white m-10' href={'/login'}>
+          <h2>Login</h2>
+        </Link>
+      </div>
     </div>
   );
 }
