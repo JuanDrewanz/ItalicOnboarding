@@ -2,16 +2,19 @@ import { useMutation } from '@apollo/client';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import client from '../apolo-client';
+import { useAuth } from '../src/context/authContext';
 import { LOGIN_USER } from '../src/queries/queries';
 
 function LoginUser() {
+  const { login, user, logout } = useAuth();
   const router = useRouter();
 
-  const [loginUser, { error, data, loading }] = useMutation(LOGIN_USER, {
+  const [loginUser, { loading, error }] = useMutation(LOGIN_USER, {
     client: client,
-    onCompleted: ({ data }) => {
-      localStorage.setItem('token', 'prueba');
-      router.push('/categories');
+    onCompleted: async function (data) {
+      localStorage.setItem('token', data.loginUser.token);
+      login({ token: data.loginUser.token });
+      router.push('/categoriesHome');
     },
   });
 
@@ -20,14 +23,14 @@ function LoginUser() {
     password: '',
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     setNewUser({
       ...newUser,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleClick = async (e) => {
+  const handleClick = async (e: any) => {
     e.preventDefault();
     try {
       await loginUser({
@@ -125,7 +128,7 @@ export default function login() {
                 <div className='bg-teal-800 lg:w-6/12 flex items-center lg:rounded-r-lg rounded-b-lg lg:rounded-bl-none'>
                   <div className='text-white px-4 py-6 md:p-12 md:mx-6'>
                     <h4 className='text-xl font-semibold mb-6'>
-                      We are more than just a company
+                      We are more than just an electronic store
                     </h4>
                     <p className='text-sm'>
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit,

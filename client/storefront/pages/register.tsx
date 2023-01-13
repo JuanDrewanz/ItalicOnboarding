@@ -4,13 +4,17 @@ import { useState } from 'react';
 import { consumers } from 'stream';
 import client from '../apolo-client';
 import { REGISTER_USER } from '../src/queries/queries';
+import { useAuth } from '../src/context/authContext';
 
 function RegisterUser() {
   const router = useRouter();
+  const { login, user } = useAuth();
   const [registerUser, { loading, error, data }] = useMutation(REGISTER_USER, {
     client: client,
-    onCompleted: () => {
-      router.push('/categories');
+    onCompleted: async function (data) {
+      localStorage.setItem('token', data.registerUser.token);
+      login({ token: data.registerUser.token });
+      router.push('/categoriesHome');
     },
   });
 
@@ -141,7 +145,7 @@ export default function register() {
                 <div className='bg-teal-800 lg:w-6/12 flex items-center lg:rounded-r-lg rounded-b-lg lg:rounded-bl-none'>
                   <div className='text-white px-4 py-6 md:p-12 md:mx-6'>
                     <h4 className='text-xl font-semibold mb-6'>
-                      We are more than just a company
+                      We are more than just an electronic store
                     </h4>
                     <p className='text-sm'>
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit,
