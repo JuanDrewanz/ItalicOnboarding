@@ -23,6 +23,7 @@ function SearchProducts({ search }) {
   return data.searchProduct.map(
     ({ id, title, price, imageurl, avg_rating }) => (
       <ProductCard
+        key={id}
         id={id}
         title={title}
         price={price}

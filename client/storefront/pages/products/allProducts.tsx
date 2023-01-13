@@ -12,6 +12,7 @@ function GetProducts() {
 
   return data.getProducts.map(({ id, title, price, imageurl, avg_rating }) => (
     <ProductCard
+      key={id}
       id={id}
       title={title}
       price={price}

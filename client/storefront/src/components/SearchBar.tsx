@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { ReactEventHandler, useState } from 'react';
 
 export default function SearchBar() {
   const router = useRouter();
@@ -9,9 +9,9 @@ export default function SearchBar() {
 
   const [search, setSearch] = useState('');
 
-  const handleChange = (e) => setSearch(e.target.value);
+  const handleChange = (e: any) => setSearch(e.target.value);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     redirect(search);
     setSearch('');

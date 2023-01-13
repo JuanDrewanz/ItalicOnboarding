@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import { Inter } from '@next/font/google';
 import Link from 'next/link';
+import { User } from '../src/__generated__/graphql';
+import { useAuth } from '../src/context/authContext';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -31,7 +33,7 @@ export default function Home() {
                   </p>
                   <div className='flex flex-row'>
                     <a
-                      href='/categories'
+                      href='/categoriesHome'
                       className='bg-transparent w-24 hover:bg-teal-300 text-teal-300 hover:text-black rounded shadow hover:shadow-lg py-2 px-4 border border-teal-300 hover:border-transparent'
                     >
                       Explore
