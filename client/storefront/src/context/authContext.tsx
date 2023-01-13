@@ -3,19 +3,19 @@ import { createContext, ReactNode, useContext, useReducer } from 'react';
 import { User } from '../__generated__/graphql';
 
 const initialState = {
-  user: null,
+  user: {},
   isLoggedIn: false,
 };
 
 type AuthContextType = {
-  user: string | null;
+  user: User;
   isLoggedIn: boolean;
   login: (userData: User) => void;
   logout: () => void;
 };
 
 const AuthContextDefaultVaulues: AuthContextType = {
-  user: null,
+  user: {},
   isLoggedIn: false,
   login: () => {},
   logout: () => {},
@@ -27,7 +27,7 @@ export const useAuth = (): AuthContextType => useContext(AuthContext);
 
 type Props = { children: ReactNode };
 
-function authReducer(state, action) {
+function authReducer(state: any, action: any) {
   switch (action.type) {
     case 'LOGIN':
       return {
@@ -58,6 +58,7 @@ export const AuthProvider = ({ children }: Props) => {
 
   const logout = () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('shoppingCart');
     dispatch({ type: 'LOGOUT' });
   };
 

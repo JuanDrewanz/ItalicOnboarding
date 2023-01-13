@@ -40,7 +40,7 @@ export default function ProfileMenu() {
             role='menuitem'
             id='user-menu-item-0'
           >
-            Username
+            {user.email}
           </p>
           <button
             onClick={() => logout()}

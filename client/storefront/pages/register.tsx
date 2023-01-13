@@ -13,7 +13,10 @@ function RegisterUser() {
     client: client,
     onCompleted: async function (data) {
       localStorage.setItem('token', data.registerUser.token);
-      login({ token: data.registerUser.token });
+      login({
+        token: data.registerUser.token,
+        email: data.registerUser.email,
+      });
       router.push('/categoriesHome');
     },
   });
@@ -24,14 +27,14 @@ function RegisterUser() {
     username: '',
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     setNewUser({
       ...newUser,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleClick = async (e) => {
+  const handleClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     try {
       await registerUser({
@@ -103,7 +106,7 @@ function RegisterUser() {
 export default function register() {
   const router = useRouter();
 
-  const handleClick = (e) => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     router.push('/login');
   };
