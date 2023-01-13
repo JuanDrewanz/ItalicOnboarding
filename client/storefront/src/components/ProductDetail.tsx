@@ -1,4 +1,6 @@
+import { useRouter } from 'next/router';
 import { stringify } from 'querystring';
+import { useAuth } from '../context/authContext';
 import { Products } from '../__generated__/graphql';
 
 export default function ProductDetail({
@@ -23,21 +25,63 @@ export default function ProductDetail({
     id,
   };
 
+  const { user } = useAuth();
+  const router = useRouter();
+
   const addToCart = () => {
-    let cart: any = localStorage.getItem('shoppingCart');
+    if (!user) {
+      alert('Please log in to add items to your cart');
+    } else {
+      let cart: any = localStorage.getItem('shoppingCart');
 
-    if (!cart) cart = [];
-    else cart = JSON.parse(cart);
+      if (!cart) cart = [];
+      else cart = JSON.parse(cart);
 
-    cart.push(cartItem);
+      cart.push(cartItem);
 
-    localStorage.removeItem('shoppingCart');
-    localStorage.setItem('shoppingCart', JSON.stringify(cart));
+      localStorage.removeItem('shoppingCart');
+      localStorage.setItem('shoppingCart', JSON.stringify(cart));
+    }
+  };
+
+  const handleClick = () => {
+    router.back();
   };
 
   return (
     <div className='py-6 w-full h-screen flex justify-center'>
       <div className='mt-4 flex w-10/12 bg-white shadow-lg rounded-lg overflow-hidden h-5/6'>
+        <button onClick={handleClick}>
+          <svg
+            width='48'
+            height='48'
+            xmlns='http://www.w3.org/2000/svg'
+            viewBox='0 0 24 24'
+          >
+            <title>navigate_before</title>
+            <rect
+              data-element='frame'
+              x='0'
+              y='0'
+              width='24'
+              height='24'
+              rx='5'
+              ry='5'
+              stroke='none'
+              fill='#4db6ac'
+            ></rect>
+            <g
+              transform='translate(4.800000000000001 4.800000000000001) scale(0.6)'
+              fill='none'
+              className='nc-icon-wrapper'
+            >
+              <path
+                d='M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z'
+                fill='#ffffff'
+              ></path>
+            </g>
+          </svg>
+        </button>
         <div className='w-7/12 flex flex-col justify-center items-center'>
           <img src={imageurl} className='object-scale-down h-3/4 w-10/12'></img>
         </div>

@@ -1,5 +1,6 @@
 import { useQuery } from '@apollo/client';
 import { useRouter } from 'next/router';
+import { ParsedUrlQueryInput } from 'querystring';
 import client from '../../../apolo-client';
 import NavBar from '../../../src/components/NavBar';
 import ProductDetail from '../../../src/components/ProductDetail';
@@ -11,7 +12,7 @@ export async function getServerSideProps() {
   };
 }
 
-function GetDetails({ prodId }) {
+function GetDetails({ prodId }: any) {
   const { loading, error, data } = useQuery(GET_PRODUCT_BY_ID, {
     client: client,
     variables: { prodId },
@@ -47,7 +48,7 @@ function GetDetails({ prodId }) {
 
 export default function DetailHome() {
   const router = useRouter();
-  const { prodId } = router.query;
+  const { prodId }: any = router.query;
   const prodId_int: number = parseInt(prodId);
 
   console.log('pord id', prodId);

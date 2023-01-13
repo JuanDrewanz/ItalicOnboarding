@@ -11,7 +11,9 @@ export default function ShoppingCart({ handleCart }: any) {
   };
 
   let savedCartString: any = localStorage.getItem('shoppingCart');
-  let savedCart = JSON.parse(savedCartString);
+  let savedCart;
+  if (savedCartString) savedCart = JSON.parse(savedCartString);
+  else savedCart = [];
 
   const [cart, setCart] = useState(savedCart);
 
