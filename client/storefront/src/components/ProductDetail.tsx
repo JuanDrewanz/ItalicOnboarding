@@ -1,3 +1,6 @@
+import { stringify } from 'querystring';
+import { Products } from '../__generated__/graphql';
+
 export default function ProductDetail({
   title,
   avg_rating,
@@ -11,7 +14,27 @@ export default function ProductDetail({
   material,
   origin,
   weight,
-}) {
+}: any) {
+  const cartItem = {
+    title,
+    imageurl,
+    price,
+    origin,
+    id,
+  };
+
+  const addToCart = () => {
+    let cart: any = localStorage.getItem('shoppingCart');
+
+    if (!cart) cart = [];
+    else cart = JSON.parse(cart);
+
+    cart.push(cartItem);
+
+    localStorage.removeItem('shoppingCart');
+    localStorage.setItem('shoppingCart', JSON.stringify(cart));
+  };
+
   return (
     <div className='py-6 w-full h-screen flex justify-center'>
       <div className='mt-4 flex w-10/12 bg-white shadow-lg rounded-lg overflow-hidden h-5/6'>
@@ -78,7 +101,10 @@ export default function ProductDetail({
           </div>
           <div className='flex flex-col item-center justify-center items-center mt-3'>
             <h1 className='text-gray-700 font-bold text-xl'>${price}</h1>
-            <button className='w-full px-3 py-2 mt-4 bg-gray-800 text-white text-xs font-bold uppercase rounded'>
+            <button
+              onClick={addToCart}
+              className='w-full px-3 py-2 mt-4 bg-gray-800 text-white text-xs font-bold uppercase rounded'
+            >
               Add to Card
             </button>
           </div>
