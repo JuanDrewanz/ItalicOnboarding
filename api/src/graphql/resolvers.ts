@@ -75,8 +75,6 @@ export const resolvers = {
       let sql = `INSERT into users (username,email,is_active,is_banned,password) VALUES ('${username}','${email}',true,false,'${encryptedpw}') RETURNING *`;
       const newUser = await pool.query(sql);
 
-      console.log('el nuevo usuario es:', newUser);
-
       const token = jwt.sign(
         {
           user_id: newUser.rows[0].id,

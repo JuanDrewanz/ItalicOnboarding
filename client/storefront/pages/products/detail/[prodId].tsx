@@ -51,9 +51,6 @@ export default function DetailHome() {
   const { prodId }: any = router.query;
   const prodId_int: number = parseInt(prodId);
 
-  console.log('pord id', prodId);
-  console.log('prodId_int', prodId_int);
-
   return (
     <div className='flex flex-col w-screen h-screen'>
       <NavBar />

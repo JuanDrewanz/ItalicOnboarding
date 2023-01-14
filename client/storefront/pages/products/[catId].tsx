@@ -21,8 +21,6 @@ function GetProducts({ catId }: any) {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
 
-  console.log(data, loading, error);
-
   return data.getProductsByCat.map(
     ({ id, title, price, imageurl, avg_rating }: Products) => (
       <ProductCard

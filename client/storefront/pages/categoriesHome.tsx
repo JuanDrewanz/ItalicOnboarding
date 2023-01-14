@@ -12,12 +12,29 @@ function GetCategories() {
   if (error) return <p>Error : {error.message}</p>;
 
   return data.getCategories.map((cat: Categories) => (
-    <div
-      key={cat.id}
-      className='rounded-md border-solid border-4 border-teal-400 w-1/5 h-12 align-middle flex justify-center items-center text-center m-5 font-bold'
+    <a
+      href={`/products/${cat.id}`}
+      className='relative inline-flex m-4 items-center px-12 py-3 overflow-hidden text-lg font-medium text-teal-600 border-2 border-teal-600 rounded-full hover:text-white group hover:bg-gray-50'
     >
-      <Link href={`/products/${cat.id}`}>{cat.name}</Link>
-    </div>
+      <span className='absolute left-0 block w-full h-0 transition-all bg-teal-600 opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease'></span>
+      <span className='absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease'>
+        <svg
+          className='w-5 h-5'
+          fill='none'
+          stroke='currentColor'
+          viewBox='0 0 24 24'
+          xmlns='http://www.w3.org/2000/svg'
+        >
+          <path
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            stroke-width='2'
+            d='M14 5l7 7m0 0l-7 7m7-7H3'
+          ></path>
+        </svg>
+      </span>
+      <span className='relative w-52 text-center'>{cat.name}</span>
+    </a>
   ));
 }
 
@@ -25,11 +42,31 @@ export default function CategoriesHome() {
   return (
     <div className='flex flex-col items-center bg-gray-100 h-screen'>
       <NavBar />
-      <h1 className='font-bold text-xl mt-5'>Select a category</h1>
+      <h1 className='font-bold text-xl mt-8 mb-5'>Select a category</h1>
       <GetCategories />
-      <div className='rounded-md border-solid border-4 border-teal-400 w-1/5 h-12 align-middle flex justify-center items-center m-5 text-center font-bold'>
-        <Link href={'/products/allProducts'}>All products</Link>
-      </div>
+      <a
+        href='/products/allProducts'
+        className='relative inline-flex m-4 items-center px-12 py-3 overflow-hidden text-lg font-medium text-teal-600 border-2 border-teal-600 rounded-full hover:text-white group hover:bg-gray-50'
+      >
+        <span className='absolute left-0 block w-full h-0 transition-all bg-teal-600 opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease'></span>
+        <span className='absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease'>
+          <svg
+            className='w-5 h-5'
+            fill='none'
+            stroke='currentColor'
+            viewBox='0 0 24 24'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <path
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              stroke-width='2'
+              d='M14 5l7 7m0 0l-7 7m7-7H3'
+            ></path>
+          </svg>
+        </span>
+        <span className='relative w-52 text-center'>All Products</span>
+      </a>
     </div>
   );
 }

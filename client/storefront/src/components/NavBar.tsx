@@ -8,7 +8,6 @@ import ProfileMenu from './ProfileMenu';
 export default function NavBar() {
   const [shopCart, setShopCart] = useState(false);
   const { user } = useAuth();
-  console.log(user);
 
   const handleCart = () => {
     if (shopCart) setShopCart(false);
