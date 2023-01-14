@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { Products } from '../__generated__/graphql';
 
 export default function ProductCard({
   id,
@@ -7,9 +8,9 @@ export default function ProductCard({
   price,
   imageurl,
   avg_rating,
-}) {
+}: Products) {
   const router = useRouter();
-  function redirect(id) {
+  function redirect(id: any) {
     router.push(`/products/detail/${id}`);
   }
 
@@ -17,7 +18,11 @@ export default function ProductCard({
     <div className='py-6 m-6 w-128'>
       <div className='flex w-full bg-white shadow-lg rounded-lg overflow-hidden h-64'>
         <div className='w-2/5 p-2 flex justify-center items-center h-full'>
-          <img src={imageurl} className='object-scale-down h-48 w-48'></img>
+          {imageurl ? (
+            <img src={imageurl} className='object-scale-down h-48 w-48'></img>
+          ) : (
+            ''
+          )}
         </div>
         <div className='w-2/3 p-4 flex flex-col justify-between'>
           <div className='flex flex-col'>

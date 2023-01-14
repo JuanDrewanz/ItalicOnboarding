@@ -1,6 +1,8 @@
 import { pool } from '../connection';
 
 export default async function dbSetup() {
+  console.log('hagamos el set up');
+
   const newTableProducts = `create table if not exists products (
         id SERIAL primary key, 
         title TEXT not null,

@@ -4,6 +4,7 @@ import ProductCard from '../../src/components/ProductCard';
 import { GET_PRODUCTS_BY_CAT } from '../../src/queries/queries';
 import { useRouter } from 'next/router';
 import NavBar from '../../src/components/NavBar';
+import { Products } from '../../src/__generated__/graphql';
 
 export async function getServerSideProps() {
   return {
@@ -11,7 +12,7 @@ export async function getServerSideProps() {
   };
 }
 
-function GetProducts({ catId }) {
+function GetProducts({ catId }: any) {
   const { loading, error, data } = useQuery(GET_PRODUCTS_BY_CAT, {
     client: client,
     variables: { catId },
@@ -23,7 +24,7 @@ function GetProducts({ catId }) {
   console.log(data, loading, error);
 
   return data.getProductsByCat.map(
-    ({ id, title, price, imageurl, avg_rating }) => (
+    ({ id, title, price, imageurl, avg_rating }: Products) => (
       <ProductCard
         key={id}
         id={id}
@@ -36,9 +37,9 @@ function GetProducts({ catId }) {
   );
 }
 
-export default function Products() {
+export default function ProductsByCat() {
   const router = useRouter();
-  const { catId } = router.query;
+  const { catId }: any = router.query;
   const category = parseInt(catId);
 
   return (

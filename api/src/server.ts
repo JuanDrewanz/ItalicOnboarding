@@ -40,6 +40,9 @@ async function connectToDb() {
 //   console.log('el nuevo usuario es: ', newUser.rows[0]);
 // }
 
-connectToDb();
-// dbSetup();
+console.log('listo');
+
+await connectToDb();
+// await dbSetup();
+
 // createUser('mariana', 'mari@gmail.com');

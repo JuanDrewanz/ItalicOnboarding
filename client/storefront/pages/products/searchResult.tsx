@@ -4,6 +4,7 @@ import client from '../../apolo-client';
 import NavBar from '../../src/components/NavBar';
 import ProductCard from '../../src/components/ProductCard';
 import { SEARCH_PRODUCT } from '../../src/queries/queries';
+import { Products } from '../../src/__generated__/graphql';
 
 export async function getServerSideProps() {
   return {
@@ -11,7 +12,7 @@ export async function getServerSideProps() {
   };
 }
 
-function SearchProducts({ search }) {
+function SearchProducts({ search }: any) {
   const { error, loading, data } = useQuery(SEARCH_PRODUCT, {
     client: client,
     variables: { title: search },
@@ -21,7 +22,7 @@ function SearchProducts({ search }) {
   if (error) return <p>Error : {error.message}</p>;
 
   return data.searchProduct.map(
-    ({ id, title, price, imageurl, avg_rating }) => (
+    ({ id, title, price, imageurl, avg_rating }: Products) => (
       <ProductCard
         key={id}
         id={id}
