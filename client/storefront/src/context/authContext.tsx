@@ -3,7 +3,7 @@ import { createContext, ReactNode, useContext, useReducer } from 'react';
 import { User } from '../__generated__/graphql';
 
 const initialState = {
-  user: {},
+  user: null,
   isLoggedIn: false,
 };
 
