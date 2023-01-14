@@ -9,7 +9,7 @@ import { useAuth } from '../src/context/authContext';
 function RegisterUser() {
   const router = useRouter();
   const { login, user } = useAuth();
-  const [registerUser, { loading, error, data }] = useMutation(REGISTER_USER, {
+  const [registerUser, { loading, error }] = useMutation(REGISTER_USER, {
     client: client,
     onCompleted: async function (data) {
       localStorage.setItem('token', data.registerUser.token);
