@@ -20,27 +20,27 @@ export default function Home() {
           <section>
             <div className='bg-black text-white py-20 h-screen'>
               <div className='container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24'>
-                <div className='flex flex-col w-full lg:w-1/3 justify-center items-start p-8'>
+                <div className='flex flex-col w-full lg:w-1/3 justify-center items-center p-8'>
                   <h1 className='text-3xl md:text-5xl p-2 text-teal-500 tracking-loose'>
                     eMall
                   </h1>
-                  <h2 className='text-3xl md:text-5xl leading-relaxed md:leading-snug mb-2'>
+                  <h2 className='text-3xl md:text-5xl text-center leading-relaxed md:leading-snug mb-2'>
                     Enjoy your shopping time
                   </h2>
-                  <p className='text-sm md:text-base text-gray-50 mb-4'>
+                  <p className='text-sm md:text-base text-center text-gray-50 mb-4'>
                     Explore our catalog and discover great deals. Register now
                     to enhance your experience
                   </p>
-                  <div className='flex flex-row'>
+                  <div className='flex flex-col w-full text-center'>
                     <a
                       href='/categoriesHome'
-                      className='bg-transparent w-24 hover:bg-teal-300 text-teal-300 hover:text-black rounded shadow hover:shadow-lg py-2 px-4 border border-teal-300 hover:border-transparent'
+                      className='m-2 bg-transparent w-full hover:bg-teal-300 text-teal-300 hover:text-black rounded shadow hover:shadow-lg py-2 px-4 border border-teal-300 hover:border-transparent'
                     >
                       Explore
                     </a>
                     <a
                       href='/login'
-                      className='ml-8 w-24 bg-transparent hover:bg-white text-white-300 hover:text-black rounded shadow hover:shadow-lg py-2 px-4 border border-white-300 hover:border-transparent'
+                      className='m-2 w-full bg-transparent hover:bg-white text-white-300 hover:text-black rounded shadow hover:shadow-lg py-2 px-4 border border-white-300 hover:border-transparent'
                     >
                       Login
                     </a>
