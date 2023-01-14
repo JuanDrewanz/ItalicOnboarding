@@ -10,6 +10,10 @@ export default function ShoppingCart({ handleCart }: any) {
     localStorage.setItem('shoppingCart', JSON.stringify(cart));
   };
 
+  const handleCheckout = () => {
+    alert('Your order is on its way! Thanks for shopping @ eMall');
+  };
+
   let savedCartString: any = localStorage.getItem('shoppingCart');
   let savedCart;
   if (savedCartString) savedCart = JSON.parse(savedCartString);
@@ -140,12 +144,12 @@ export default function ShoppingCart({ handleCart }: any) {
                     Shipping and taxes calculated at checkout.
                   </p>
                   <div className='mt-6'>
-                    <a
-                      href='#'
-                      className='flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700'
+                    <button
+                      onClick={handleCheckout}
+                      className='flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700'
                     >
                       Checkout
-                    </a>
+                    </button>
                   </div>
                   <div className='mt-6 flex justify-center text-center text-sm text-gray-500'>
                     <p>

@@ -147,7 +147,7 @@ export default function ProductDetail({
             <h1 className='text-gray-700 font-bold text-xl'>${price}</h1>
             <button
               onClick={addToCart}
-              className='w-full px-3 py-2 mt-4 bg-gray-800 text-white text-xs font-bold uppercase rounded'
+              className='w-full px-3 py-2 mt-4 bg-gray-800 text-white text-xs font-bold uppercase rounded active:shadow-lg active:bg-gray-500 transition duration-150 ease-in-out'
             >
               Add to Card
             </button>
