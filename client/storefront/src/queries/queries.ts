@@ -82,7 +82,7 @@ export const SEARCH_PRODUCT = gql`
 export const REGISTER_USER = gql`
   mutation Mutation($user: userRegisterData) {
     registerUser(user: $user) {
-      username
+      email
       token
     }
   }
