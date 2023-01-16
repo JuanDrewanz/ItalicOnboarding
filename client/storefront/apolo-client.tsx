@@ -5,6 +5,9 @@ import {
   InMemoryCache,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+// import dotenv from 'dotenv';
+// dotenv.config();
+// const { APOLLO_CLIENT_URL } = process.env;
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:4000',
