@@ -90,9 +90,9 @@ export default function ShoppingCart({ handleCart }: any) {
                         {!cart.length ? (
                           <div>Your cart is empty</div>
                         ) : (
+                          /* feedback: Can create a cart item component */
                           cart.length &&
                           cart.map((item: any, index: any) => (
-                            {/* feedback: Can create a cart item component */}
                             <li className="flex py-6" key={index}>
                               <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                 <img
