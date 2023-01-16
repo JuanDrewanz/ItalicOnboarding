@@ -1,5 +1,6 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
+// feedback: we can create graphql folder and mutations/queries folders/files under it
 export const GET_PRODUCTS = gql`
   query GetProducts {
     getProducts {
