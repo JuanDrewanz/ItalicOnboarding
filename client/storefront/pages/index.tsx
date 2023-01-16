@@ -33,7 +33,7 @@ export default function Home() {
                   </p>
                   <div className='flex flex-col w-full text-center'>
                     <a
-                      href='/categoriesHome'
+                      href='/CategoriesHome'
                       className='m-2 bg-transparent w-full hover:bg-teal-300 text-teal-300 hover:text-black rounded shadow hover:shadow-lg py-2 px-4 border border-teal-300 hover:border-transparent'
                     >
                       Explore

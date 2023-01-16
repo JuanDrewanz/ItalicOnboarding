@@ -14,7 +14,7 @@ function LoginUser() {
     onCompleted: async function (data) {
       localStorage.setItem('token', data.loginUser.token);
       login({ token: data.loginUser.token, email: data.loginUser.email });
-      router.push('/categoriesHome');
+      router.push('/CategoriesHome');
     },
   });
 

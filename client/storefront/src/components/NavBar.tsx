@@ -18,7 +18,7 @@ export default function NavBar() {
     <div className='flex bg-black w-full h-20 items-center justify-between'>
       <div className='w-1/5 flex items-center'>
         <h2 className='text-teal-300 text-xl m-10'>eMall</h2>
-        <Link href='/categoriesHome'>
+        <Link href='/CategoriesHome'>
           <h2 className='text-white m-6'>Categories</h2>
         </Link>
         <Link href='/products/allProducts'>

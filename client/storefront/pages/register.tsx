@@ -17,7 +17,7 @@ function RegisterUser() {
         token: data.registerUser.token,
         email: data.registerUser.email,
       });
-      router.push('/categoriesHome');
+      router.push('/CategoriesHome');
     },
   });
 
