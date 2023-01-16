@@ -6,7 +6,7 @@ import { Products } from '../__generated__/graphql';
 export default function ProductDetail({
   title,
   avg_rating,
-  category,
+  category_id,
   id,
   price,
   imageurl,

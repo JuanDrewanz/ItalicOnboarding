@@ -21,7 +21,7 @@ function GetDetails({ prodId }: any) {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
 
-  const { title, avg_rating, category, id, price, imageurl, reviews_count } =
+  const { title, avg_rating, category_id, id, price, imageurl, reviews_count } =
     data.getProductById;
 
   const { color, dimensions, material, origin, weight } =
@@ -31,7 +31,7 @@ function GetDetails({ prodId }: any) {
       <ProductDetail
         title={title}
         avg_rating={avg_rating}
-        category={category}
+        category_id={category_id}
         id={id}
         price={price}
         imageurl={imageurl}

@@ -4,7 +4,7 @@ export const GET_PRODUCTS = gql`
   query GetProducts {
     getProducts {
       id
-      category
+      category_id
       title
       price
       avg_rating
@@ -27,7 +27,7 @@ export const GET_PRODUCTS_BY_CAT = gql`
   query Query($catId: Int) {
     getProductsByCat(catId: $catId) {
       id
-      category
+      category_id
       title
       price
       avg_rating
@@ -41,7 +41,7 @@ export const GET_PRODUCT_BY_ID = gql`
   query Query($prodId: Int) {
     getProductById(prodId: $prodId) {
       avg_rating
-      category
+      category_id
       id
       price
       imageurl
@@ -63,7 +63,7 @@ export const SEARCH_PRODUCT = gql`
     searchProduct(title: $title) {
       title
       avg_rating
-      category
+      category_id
       id
       imageurl
       price

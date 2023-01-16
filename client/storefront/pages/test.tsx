@@ -9,12 +9,12 @@ function GetProducts() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
 
-  return data.getProducts.map(({ id, category, title, price }: Products) => (
+  return data.getProducts.map(({ id, category_id, title, price }: Products) => (
     <div key={id}>
       <h3>{title}</h3>
       <br />
       <b>About this product:</b>
-      <p>{category}</p>
+      <p>{category_id}</p>
       <p>{price}</p>
       <br />
     </div>

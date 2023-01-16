@@ -32,7 +32,7 @@ export const resolvers = {
     async getProductsByCat(_, args) {
       try {
         const products = await pool.query('SELECT * from products');
-        return products.rows.filter((prod) => prod.category === args.catId);
+        return products.rows.filter((prod) => prod.category_id === args.catId);
       } catch (e) {
         console.log('Data not found');
       }
