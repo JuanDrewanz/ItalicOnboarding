@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import LoginUser from '../src/components/LoginUser';
+import Link from "next/link";
+import LoginUser from "../src/components/LoginUser";
 
 export default function login() {
   return (

@@ -1,7 +1,7 @@
-import { useQuery } from '@apollo/client';
-import client from '../apolo-client';
-import { GET_PRODUCTS } from '../src/queries/queries';
-import { Products } from '../src/__generated__/graphql';
+import { useQuery } from "@apollo/client";
+import client from "../apolo-client";
+import { GET_PRODUCTS } from "../src/queries/queries";
+import { Products } from "../src/__generated__/graphql";
 
 function GetProducts() {
   const { loading, error, data } = useQuery(GET_PRODUCTS, { client: client });
