@@ -1,3 +1,4 @@
+import * as ls from 'local-storage';
 import { useRouter } from 'next/router';
 import { stringify } from 'querystring';
 import { useAuth } from '../context/authContext';
@@ -32,15 +33,15 @@ export default function ProductDetail({
     if (!user) {
       alert('Please log in to add items to your cart');
     } else {
-      let cart: any = localStorage.getItem('shoppingCart');
+      let cart: any = ls.get('shoppingCart');
 
       if (!cart) cart = [];
       else cart = JSON.parse(cart);
 
       cart.push(cartItem);
 
-      localStorage.removeItem('shoppingCart');
-      localStorage.setItem('shoppingCart', JSON.stringify(cart));
+      ls.remove('shoppingCart');
+      ls.set('shoppingCart', JSON.stringify(cart));
     }
   };
 

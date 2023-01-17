@@ -1,20 +1,21 @@
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import * as ls from 'local-storage';
 
 export default function ShoppingCart({ handleCart }: any) {
   const router = useRouter();
 
   const handleClick = () => {
     handleCart();
-    localStorage.removeItem('shoppingCart');
-    localStorage.setItem('shoppingCart', JSON.stringify(cart));
+    ls.remove('shoppingCart');
+    ls.set('shoppingCart', JSON.stringify(cart));
   };
 
   const handleCheckout = () => {
     alert('Your order is on its way! Thanks for shopping @ eMall');
   };
 
-  let savedCartString: any = localStorage.getItem('shoppingCart');
+  let savedCartString: any = ls.get('shoppingCart');
   let savedCart;
   if (savedCartString) savedCart = JSON.parse(savedCartString);
   else savedCart = [];

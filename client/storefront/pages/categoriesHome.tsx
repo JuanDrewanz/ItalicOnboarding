@@ -9,6 +9,9 @@ import { Categories, User } from '../src/__generated__/graphql';
 export default function CategoriesHome() {
   const { error, loading, data } = useQuery(GET_CATEGORIES, { client: client });
 
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error : {error.message}</p>;
+
   return (
     <div className='flex flex-col items-center bg-gray-100 h-screen'>
       <NavBar />
