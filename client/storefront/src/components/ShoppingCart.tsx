@@ -1,31 +1,30 @@
-import { useRouter } from 'next/router';
-import { useState } from 'react';
-import * as ls from 'local-storage';
+import { useRouter } from "next/router";
+import { useState } from "react";
+import * as ls from "local-storage";
+import CartItem from "./CartItem";
+import CloseButton from "../icons/closeButton";
 
-export default function ShoppingCart({ handleCart }: any) {
+export default function ShoppingCart({ toggleCart }: any) {
   const router = useRouter();
 
   const handleClick = () => {
-    handleCart();
-    ls.remove('shoppingCart');
-    ls.set('shoppingCart', JSON.stringify(cart));
+    toggleCart();
+    ls.remove("shoppingCart");
+    ls.set("shoppingCart", JSON.stringify(cart));
   };
 
   const handleCheckout = () => {
-    alert('Your order is on its way! Thanks for shopping @ eMall');
+    alert("Your order is on its way! Thanks for shopping @ eMall");
   };
 
-  let savedCartString: any = ls.get('shoppingCart');
-  let savedCart;
-  if (savedCartString) savedCart = JSON.parse(savedCartString);
-  else savedCart = [];
+  const savedCartString: any = ls.get("shoppingCart");
+  const savedCart = JSON.parse(savedCartString) || [];
 
   const [cart, setCart] = useState(savedCart);
 
   const removeItem = (index: number) => {
-    const removedItem = cart.splice(index, 1);
-    const updatedCart = cart.filter((prod: any) => prod.id !== removedItem.id);
-    setCart(updatedCart);
+    cart.splice(index, 1);
+    setCart([...cart]);
   };
 
   return (
@@ -57,26 +56,10 @@ export default function ShoppingCart({ handleCart }: any) {
                         onClick={handleClick}
                       >
                         <span className='sr-only'>Close panel</span>
-
-                        <svg
-                          className='h-6 w-6'
-                          xmlns='http://www.w3.org/2000/svg'
-                          fill='none'
-                          viewBox='0 0 24 24'
-                          strokeWidth='1.5'
-                          stroke='currentColor'
-                          aria-hidden='true'
-                        >
-                          <path
-                            strokeLinecap='round'
-                            strokeLinejoin='round'
-                            d='M6 18L18 6M6 6l12 12'
-                          />
-                        </svg>
+                        <CloseButton />
                       </button>
                     </div>
                   </div>
-
                   <div className='mt-8'>
                     <div className='flow-root'>
                       <ul
@@ -88,41 +71,11 @@ export default function ShoppingCart({ handleCart }: any) {
                         ) : (
                           cart.length &&
                           cart.map((item: any, index: any) => (
-                            <li className='flex py-6' key={index}>
-                              <div className='h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200'>
-                                <img
-                                  src={item.imageurl}
-                                  alt={item.title}
-                                  className='h-full w-full object-scale-down object-center'
-                                />
-                              </div>
-                              <div className='ml-4 flex flex-1 flex-col'>
-                                <div>
-                                  <div className='flex justify-between text-base font-medium text-gray-900'>
-                                    <h3>
-                                      <a href='#'>{item.title}</a>
-                                    </h3>
-                                    <p className='ml-4'>${item.price}</p>
-                                  </div>
-                                  <p className='mt-1 text-sm text-gray-500'>
-                                    {item.origin}
-                                  </p>
-                                </div>
-                                <div className='flex flex-1 items-end justify-between text-sm'>
-                                  <p className='text-gray-500'>Qty 1</p>
-
-                                  <div className='flex'>
-                                    <button
-                                      onClick={() => removeItem(index)}
-                                      type='button'
-                                      className='font-medium text-indigo-600 hover:text-indigo-500'
-                                    >
-                                      Remove
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
-                            </li>
+                            <CartItem
+                              item={item}
+                              index={index}
+                              removeItem={removeItem}
+                            />
                           ))
                         )}
                       </ul>

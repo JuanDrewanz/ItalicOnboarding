@@ -11,8 +11,7 @@ export default function NavBar() {
   const { user } = useAuth();
 
   const toggleCart = () => {
-    if (showCart) setShowCart(false);
-    else setShowCart(true);
+    setShowCart(!showCart);
   };
 
   return (
@@ -39,7 +38,7 @@ export default function NavBar() {
               <h2>Login</h2>
             </Link>
           )}
-          {showCart ? <ShoppingCart handleCart={toggleCart} /> : ""}
+          {showCart ? <ShoppingCart toggleCart={toggleCart} /> : ""}
         </div>
       </div>
     </div>
