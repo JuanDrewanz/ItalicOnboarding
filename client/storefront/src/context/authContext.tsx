@@ -1,6 +1,7 @@
 import jwtDecode from 'jwt-decode';
 import { createContext, ReactNode, useContext, useReducer } from 'react';
 import { User } from '../__generated__/graphql';
+import * as ls from 'local-storage';
 
 const initialState = {
   user: null,
@@ -57,8 +58,8 @@ export const AuthProvider = ({ children }: Props) => {
   };
 
   const logout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('shoppingCart');
+    ls.remove('token');
+    ls.remove('shoppingCart');
     dispatch({ type: 'LOGOUT' });
   };
 

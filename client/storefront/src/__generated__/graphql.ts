@@ -1,9 +1,15 @@
 /* eslint-disable */
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
-export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+export type Exact<T extends { [key: string]: unknown }> = {
+  [K in keyof T]: T[K];
+};
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]?: Maybe<T[SubKey]>;
+};
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]: Maybe<T[SubKey]>;
+};
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -25,11 +31,9 @@ export type Mutation = {
   registerUser?: Maybe<User>;
 };
 
-
 export type MutationLoginUserArgs = {
   user?: InputMaybe<UserLoginData>;
 };
-
 
 export type MutationRegisterUserArgs = {
   user?: InputMaybe<UserRegisterData>;
@@ -38,7 +42,7 @@ export type MutationRegisterUserArgs = {
 export type Products = {
   __typename?: 'Products';
   avg_rating?: Maybe<Scalars['Float']>;
-  category?: Maybe<Scalars['Int']>;
+  category_id?: Maybe<Scalars['Int']>;
   id?: Maybe<Scalars['Int']>;
   imageurl?: Maybe<Scalars['String']>;
   price?: Maybe<Scalars['Float']>;
@@ -57,21 +61,17 @@ export type Query = {
   user?: Maybe<User>;
 };
 
-
 export type QueryGetProductByIdArgs = {
   prodId?: InputMaybe<Scalars['Int']>;
 };
-
 
 export type QueryGetProductsByCatArgs = {
   catId?: InputMaybe<Scalars['Int']>;
 };
 
-
 export type QuerySearchProductArgs = {
   title?: InputMaybe<Scalars['String']>;
 };
-
 
 export type QueryUserArgs = {
   id: Scalars['Int'];

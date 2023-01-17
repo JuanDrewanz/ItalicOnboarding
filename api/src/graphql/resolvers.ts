@@ -2,6 +2,9 @@ import { ApolloError } from 'apollo-server-express';
 import { pool } from '../db/connection.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+dotenv.config();
+const { JWT_SECRET } = process.env;
 
 export const resolvers = {
   Query: {
@@ -23,26 +26,30 @@ export const resolvers = {
     },
     async getProductById(_, args) {
       try {
-        const products = await pool.query('SELECT * from products');
-        return products.rows.find((prod) => prod.id === args.prodId);
+        const products = await pool.query(
+          `SELECT * from products where id = ${args.prodId}`
+        );
+        return products.rows[0];
       } catch (e) {
         console.log('Data not found');
       }
     },
     async getProductsByCat(_, args) {
       try {
-        const products = await pool.query('SELECT * from products');
-        return products.rows.filter((prod) => prod.category === args.catId);
+        const products = await pool.query(
+          `SELECT * from products where category_id = ${args.catId}`
+        );
+        return products.rows;
       } catch (e) {
         console.log('Data not found');
       }
     },
     async searchProduct(_, args) {
       try {
-        const products = await pool.query('SELECT * from products');
-        return products.rows.filter((prod) =>
-          prod.title.toLowerCase().includes(args.title.toLowerCase())
+        const products = await pool.query(
+          `SELECT * from products where title ilike '%${args.title}%'`
         );
+        return products.rows;
       } catch (e) {
         console.log('Data not found');
       }
@@ -70,28 +77,27 @@ export const resolvers = {
       if (oldUser.rowCount)
         throw new ApolloError(`User with ${email} email is already registered`);
 
-      var encryptedpw = await bcrypt.hash(password, 10);
+      const encryptedpw = await bcrypt.hash(password, 10);
 
-      let sql = `INSERT into users (username,email,is_active,is_banned,password) VALUES ('${username}','${email}',true,false,'${encryptedpw}') RETURNING *`;
-      const newUser = await pool.query(sql);
+      const sqlCreateUser = `INSERT into users (username,email,is_active,is_banned,password) VALUES ('${username}','${email}',true,false,'${encryptedpw}') RETURNING *`;
+      const newUser = await pool.query(sqlCreateUser);
 
       const token = jwt.sign(
         {
           user_id: newUser.rows[0].id,
           email: newUser.rows[0].email,
         },
-        'UNSAFE_STRING',
-        { expiresIn: '2h' }
+        JWT_SECRET,
+        { expiresIn: '24h' }
       );
 
-      sql = `UPDATE users SET token = '${token}' WHERE id = '${newUser.rows[0].id}'`;
-      await pool.query(sql);
+      const sqlUpdateToken = `UPDATE users SET token = '${token}' WHERE id = '${newUser.rows[0].id}'`;
+      await pool.query(sqlUpdateToken);
 
       return {
         id: newUser.rows[0].id,
         email,
         username,
-        password: newUser.rows[0].password,
         token,
       };
     },
@@ -109,7 +115,7 @@ export const resolvers = {
             user_id: validUser.rows[0].id,
             email,
           },
-          'UNSAFE_STRING',
+          JWT_SECRET,
           { expiresIn: '2h' }
         );
         let sql = `UPDATE users SET token = '${token}' WHERE id = '${validUser.rows[0].id}'`;

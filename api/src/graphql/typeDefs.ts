@@ -23,7 +23,7 @@ export const typeDefinitions = gql`
   type Products {
     id: Int
     title: String
-    category: Int
+    category_id: Int
     avg_rating: Float
     reviews_count: Int
     price: Float

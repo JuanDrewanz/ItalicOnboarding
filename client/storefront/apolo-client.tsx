@@ -5,6 +5,10 @@ import {
   InMemoryCache,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import * as ls from 'local-storage';
+// import dotenv from 'dotenv';
+// dotenv.config();
+// const { APOLLO_CLIENT_URL } = process.env;
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:4000',
@@ -13,7 +17,7 @@ const httpLink = createHttpLink({
 const authLink = setContext((_, { headers }) => {
   let token;
   if (typeof window !== 'undefined') {
-    token = localStorage.getItem('token');
+    ls.get('token');
   }
   return {
     headers: { ...headers, Authorization: token },
