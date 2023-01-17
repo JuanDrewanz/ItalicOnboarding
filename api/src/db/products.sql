@@ -1,6 +1,8 @@
+/* feedback: not sure what is the use case of these files if we are doing the same queries in DB setup */
 create table products (
     id SERIAL primary key, 
     title TEXT not null,
+    /* feedback: key should be called category_id for clarity */
     category INTEGER not null,
     avg_rating FLOAT,
     reviews_count INTEGER,

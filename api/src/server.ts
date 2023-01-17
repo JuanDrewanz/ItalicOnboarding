@@ -1,8 +1,8 @@
-import { ApolloServer } from '@apollo/server';
-import { startStandaloneServer } from '@apollo/server/standalone';
-import { resolvers } from './graphql/resolvers.js';
-import { pool as db } from './db/connection.js';
-import { typeDefinitions } from './graphql/typeDefs.js';
+import { ApolloServer } from "@apollo/server";
+import { startStandaloneServer } from "@apollo/server/standalone";
+import { resolvers } from "./graphql/resolvers.js";
+import { pool as db } from "./db/connection.js";
+import { typeDefinitions } from "./graphql/typeDefs.js";
 
 const server = new ApolloServer({
   typeDefs: typeDefinitions,
@@ -18,12 +18,15 @@ console.log(`🚀  Server ready at: ${url}`);
 async function connectToDb() {
   try {
     await db.connect();
-    console.log('Successfully connected to database');
+    console.log("Successfully connected to database");
   } catch (e) {
     console.log(e.message);
   }
 }
 
+// feedback: I would put this in a different file and import/call here
+// Even better would be to write a script to do this one time on initial setup (npm command)
+// So it doesn't need to be run every time
 async function dbSetup() {
   const newTableProducts = `create table if not exists products (
         id SERIAL primary key, 
