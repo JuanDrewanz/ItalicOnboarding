@@ -1,10 +1,10 @@
-import { useQuery } from '@apollo/client';
-import { useRouter } from 'next/router';
-import { ParsedUrlQueryInput } from 'querystring';
-import client from '../../../apolo-client';
-import NavBar from '../../../src/components/NavBar';
-import ProductDetail from '../../../src/components/ProductDetail';
-import { GET_PRODUCT_BY_ID } from '../../../src/queries/queries';
+import { useQuery } from "@apollo/client";
+import { useRouter } from "next/router";
+import { ParsedUrlQueryInput } from "querystring";
+import client from "../../../apolo-client";
+import NavBar from "../../../src/components/NavBar";
+import ProductDetail from "../../../src/components/ProductDetail";
+import { GET_PRODUCT_BY_ID } from "../../../src/graphql/queries/getProducts";
 
 export async function getServerSideProps() {
   return {

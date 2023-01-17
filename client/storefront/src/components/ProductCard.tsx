@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { Products } from "../__generated__/graphql";
 
 export default function ProductCard({

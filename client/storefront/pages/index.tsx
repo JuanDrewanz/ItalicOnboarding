@@ -1,10 +1,8 @@
-import Head from 'next/head';
-import { Inter } from '@next/font/google';
-import Link from 'next/link';
-import { User } from '../src/__generated__/graphql';
-import { useAuth } from '../src/context/authContext';
+import Head from "next/head";
+import { Inter } from "@next/font/google";
+import Link from "next/link";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (

@@ -1,8 +1,7 @@
-import * as ls from 'local-storage';
-import { useRouter } from 'next/router';
-import { stringify } from 'querystring';
-import { useAuth } from '../context/authContext';
-import { Products } from '../__generated__/graphql';
+import * as ls from "local-storage";
+import { useRouter } from "next/router";
+import { useAuth } from "../context/authContext";
+import { Products } from "../__generated__/graphql";
 
 export default function ProductDetail({
   title,
@@ -31,17 +30,17 @@ export default function ProductDetail({
 
   const addToCart = () => {
     if (!user) {
-      alert('Please log in to add items to your cart');
+      alert("Please log in to add items to your cart");
     } else {
-      let cart: any = ls.get('shoppingCart');
+      let cart: any = ls.get("shoppingCart");
 
       if (!cart) cart = [];
       else cart = JSON.parse(cart);
 
       cart.push(cartItem);
 
-      ls.remove('shoppingCart');
-      ls.set('shoppingCart', JSON.stringify(cart));
+      ls.remove("shoppingCart");
+      ls.set("shoppingCart", JSON.stringify(cart));
     }
   };
 

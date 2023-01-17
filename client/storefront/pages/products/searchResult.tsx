@@ -5,7 +5,7 @@ import Error from "../../src/components/Error";
 import Loading from "../../src/components/Loading";
 import NavBar from "../../src/components/NavBar";
 import ProductCard from "../../src/components/ProductCard";
-import { SEARCH_PRODUCT } from "../../src/queries/queries";
+import { SEARCH_PRODUCT } from "../../src/graphql/queries/searchProducts";
 import { Products } from "../../src/__generated__/graphql";
 
 export default function SearchResult() {

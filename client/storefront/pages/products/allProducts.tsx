@@ -4,7 +4,7 @@ import Error from "../../src/components/Error";
 import Loading from "../../src/components/Loading";
 import NavBar from "../../src/components/NavBar";
 import ProductCard from "../../src/components/ProductCard";
-import { GET_PRODUCTS } from "../../src/queries/queries";
+import { GET_PRODUCTS } from "../../src/graphql/queries/getProducts";
 import { Products } from "../../src/__generated__/graphql";
 
 export default function AllProducts() {

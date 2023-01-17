@@ -3,10 +3,10 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import client from "../../apolo-client";
 import { useAuth } from "../context/authContext";
-import { LOGIN_USER } from "../queries/queries";
 import * as ls from "local-storage";
 import Error from "./Error";
 import Loading from "./Loading";
+import { LOGIN_USER } from "../graphql/mutations/login";
 
 export default function LoginUser() {
   const { login, user, logout } = useAuth();

@@ -1,12 +1,12 @@
 import { useQuery } from "@apollo/client";
 import client from "../../apolo-client";
 import ProductCard from "../../src/components/ProductCard";
-import { GET_PRODUCTS_BY_CAT } from "../../src/queries/queries";
 import { useRouter } from "next/router";
 import NavBar from "../../src/components/NavBar";
 import { Products } from "../../src/__generated__/graphql";
 import Error from "../../src/components/Error";
 import Loading from "../../src/components/Loading";
+import { GET_PRODUCTS_BY_CAT } from "../../src/graphql/queries/getProducts";
 
 export default function ProductsByCat() {
   const router = useRouter();
