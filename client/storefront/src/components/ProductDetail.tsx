@@ -1,6 +1,8 @@
 import * as ls from "local-storage";
 import { useRouter } from "next/router";
 import { useAuth } from "../context/authContext";
+import BackArrow from "../icons/backArrow";
+import Stars from "../icons/stars";
 import { Products } from "../__generated__/graphql";
 
 export default function ProductDetail({
@@ -52,35 +54,7 @@ export default function ProductDetail({
     <div className='py-6 w-full h-screen flex justify-center'>
       <div className='mt-4 flex w-10/12 bg-white shadow-lg rounded-lg overflow-hidden h-5/6'>
         <button onClick={handleClick}>
-          <svg
-            width='48'
-            height='48'
-            xmlns='http://www.w3.org/2000/svg'
-            viewBox='0 0 24 24'
-          >
-            <title>navigate_before</title>
-            <rect
-              data-element='frame'
-              x='0'
-              y='0'
-              width='24'
-              height='24'
-              rx='5'
-              ry='5'
-              stroke='none'
-              fill='#4db6ac'
-            ></rect>
-            <g
-              transform='translate(4.800000000000001 4.800000000000001) scale(0.6)'
-              fill='none'
-              className='nc-icon-wrapper'
-            >
-              <path
-                d='M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z'
-                fill='#ffffff'
-              ></path>
-            </g>
-          </svg>
+          <BackArrow />
         </button>
         <div className='w-7/12 flex flex-col justify-center items-center'>
           <img src={imageurl} className='object-scale-down h-3/4 w-10/12'></img>
@@ -88,39 +62,7 @@ export default function ProductDetail({
         <div className='m-8 w-5/12 p-4 flex flex-col justify-between'>
           <div>
             <h1 className='text-gray-900 font-bold text-2xl'>{title}</h1>
-            <div className='flex item-center mt-2'>
-              <svg
-                className='w-5 h-5 fill-current text-gray-700'
-                viewBox='0 0 24 24'
-              >
-                <path d='M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z' />
-              </svg>
-              <svg
-                className='w-5 h-5 fill-current text-gray-700'
-                viewBox='0 0 24 24'
-              >
-                <path d='M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z' />
-              </svg>
-              <svg
-                className='w-5 h-5 fill-current text-gray-700'
-                viewBox='0 0 24 24'
-              >
-                <path d='M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z' />
-              </svg>
-              <svg
-                className='w-5 h-5 fill-current text-gray-500'
-                viewBox='0 0 24 24'
-              >
-                <path d='M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z' />
-              </svg>
-              <svg
-                className='w-5 h-5 fill-current text-gray-500'
-                viewBox='0 0 24 24'
-              >
-                <path d='M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z' />
-              </svg>
-              <p>{avg_rating}</p>
-            </div>
+            <Stars avg_rating={avg_rating} />
             <p className='mt-1 text-gray-600 text-xs'>
               total votes: {reviews_count}
             </p>
