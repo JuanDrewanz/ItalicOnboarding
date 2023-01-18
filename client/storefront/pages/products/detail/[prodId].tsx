@@ -39,7 +39,6 @@ export default function DetailHome({
 }
 
 export async function getServerSideProps({ params }: any) {
-  console.log("los params son", params);
   const { data } = await client.query({
     query: GET_PRODUCT_BY_ID,
     variables: { prodId: parseInt(params.prodId) },
