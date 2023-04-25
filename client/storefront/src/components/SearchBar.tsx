@@ -1,20 +1,17 @@
-import { useRouter } from 'next/router';
-import { ReactEventHandler, useState } from 'react';
+import { useRouter } from "next/router";
+import { useState } from "react";
 
 export default function SearchBar() {
   const router = useRouter();
 
-  const redirect = (query: string) =>
-    router.push(`/products/searchResult?title=${query}`);
-
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
 
   const handleChange = (e: any) => setSearch(e.target.value);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    redirect(search);
-    setSearch('');
+    router.push(`/products/searchResult?title=${search}`);
+    setSearch("");
   };
 
   return (

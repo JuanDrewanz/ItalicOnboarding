@@ -1,6 +1,5 @@
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { Products } from '../__generated__/graphql';
+import Link from "next/link";
+import { Products } from "../__generated__/graphql";
 
 export default function ProductCard({
   id,
@@ -9,11 +8,6 @@ export default function ProductCard({
   imageurl,
   avg_rating,
 }: Products) {
-  const router = useRouter();
-  function redirect(id: any) {
-    router.push(`/products/detail/${id}`);
-  }
-
   return (
     <div className='py-6 m-6 w-128'>
       <div className='flex w-full bg-white shadow-lg rounded-lg overflow-hidden h-64'>
@@ -21,7 +15,7 @@ export default function ProductCard({
           {imageurl ? (
             <img src={imageurl} className='object-scale-down h-48 w-48'></img>
           ) : (
-            ''
+            ""
           )}
         </div>
         <div className='w-2/3 p-4 flex flex-col justify-between'>
@@ -66,12 +60,12 @@ export default function ProductCard({
           </div>
           <div className='flex item-center justify-between mt-3'>
             <h1 className='text-gray-700 font-bold text-xl'>${price}</h1>
-            <button
-              onClick={() => redirect(id)}
+            <Link
+              href={`/products/detail/${id}`}
               className='px-3 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded'
             >
               View details
-            </button>
+            </Link>
           </div>
         </div>
       </div>

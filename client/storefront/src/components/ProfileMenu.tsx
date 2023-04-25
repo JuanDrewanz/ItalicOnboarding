@@ -1,13 +1,12 @@
-import { useState } from 'react';
-import { useAuth } from '../context/authContext';
+import { useState } from "react";
+import { useAuth } from "../context/authContext";
 
 export default function ProfileMenu() {
   const [isOpen, setOpen] = useState(false);
   const { user, logout } = useAuth();
 
   const handleClick = () => {
-    if (isOpen) setOpen(false);
-    else setOpen(true);
+    setOpen(!isOpen);
   };
   return (
     <div className='relative m-5'>
@@ -52,7 +51,7 @@ export default function ProfileMenu() {
           </button>
         </div>
       ) : (
-        ''
+        ""
       )}
     </div>
   );

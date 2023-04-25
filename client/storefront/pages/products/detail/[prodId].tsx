@@ -1,37 +1,29 @@
-import { useQuery } from '@apollo/client';
-import { useRouter } from 'next/router';
-import { ParsedUrlQueryInput } from 'querystring';
-import client from '../../../apolo-client';
-import NavBar from '../../../src/components/NavBar';
-import ProductDetail from '../../../src/components/ProductDetail';
-import { GET_PRODUCT_BY_ID } from '../../../src/queries/queries';
+import client from "../../../apolo-client";
+import NavBar from "../../../src/components/NavBar";
+import ProductDetail from "../../../src/components/ProductDetail";
+import { GET_PRODUCT_BY_ID } from "../../../src/graphql/queries/getProducts";
 
-export async function getServerSideProps() {
-  return {
-    props: {}, // will be passed to the page component as props
-  };
-}
-
-function GetDetails({ prodId }: any) {
-  const { loading, error, data } = useQuery(GET_PRODUCT_BY_ID, {
-    client: client,
-    variables: { prodId },
-  });
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error : {error.message}</p>;
-
-  const { title, avg_rating, category, id, price, imageurl, reviews_count } =
-    data.getProductById;
-
-  const { color, dimensions, material, origin, weight } =
-    data.getProductById.specifications;
+export default function DetailHome({
+  title,
+  avg_rating,
+  category_id,
+  id,
+  price,
+  imageurl,
+  reviews_count,
+  color,
+  dimensions,
+  material,
+  origin,
+  weight,
+}: any) {
   return (
-    <div>
+    <div className='flex flex-col w-screen h-screen'>
+      <NavBar />
       <ProductDetail
         title={title}
         avg_rating={avg_rating}
-        category={category}
+        category_id={category_id}
         id={id}
         price={price}
         imageurl={imageurl}
@@ -46,15 +38,26 @@ function GetDetails({ prodId }: any) {
   );
 }
 
-export default function DetailHome() {
-  const router = useRouter();
-  const { prodId }: any = router.query;
-  const prodId_int: number = parseInt(prodId);
+export async function getServerSideProps({ params }: any) {
+  const { data } = await client.query({
+    query: GET_PRODUCT_BY_ID,
+    variables: { prodId: parseInt(params.prodId) },
+  });
 
-  return (
-    <div className='flex flex-col w-screen h-screen'>
-      <NavBar />
-      <GetDetails prodId={prodId_int} />
-    </div>
-  );
+  return {
+    props: {
+      title: data.getProductById.title,
+      avg_rating: data.getProductById.avg_rating,
+      category_id: data.getProductById.category_id,
+      id: data.getProductById.id,
+      price: data.getProductById.price,
+      imageurl: data.getProductById.imageurl,
+      reviews_count: data.getProductById.reviews_count,
+      color: data.getProductById.specifications.color,
+      dimensions: data.getProductById.specifications.dimensions,
+      material: data.getProductById.specifications.material,
+      origin: data.getProductById.specifications.origin,
+      weight: data.getProductById.specifications.weight,
+    },
+  };
 }

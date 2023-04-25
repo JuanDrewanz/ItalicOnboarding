@@ -1,10 +1,8 @@
-import Head from 'next/head';
-import { Inter } from '@next/font/google';
-import Link from 'next/link';
-import { User } from '../src/__generated__/graphql';
-import { useAuth } from '../src/context/authContext';
+import Head from "next/head";
+import { Inter } from "@next/font/google";
+import Link from "next/link";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
@@ -32,18 +30,18 @@ export default function Home() {
                     to enhance your experience
                   </p>
                   <div className='flex flex-col w-full text-center'>
-                    <a
-                      href='/categoriesHome'
+                    <Link
+                      href='/CategoriesHome'
                       className='m-2 bg-transparent w-full hover:bg-teal-300 text-teal-300 hover:text-black rounded shadow hover:shadow-lg py-2 px-4 border border-teal-300 hover:border-transparent'
                     >
                       Explore
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       href='/login'
                       className='m-2 w-full bg-transparent hover:bg-white text-white-300 hover:text-black rounded shadow hover:shadow-lg py-2 px-4 border border-white-300 hover:border-transparent'
                     >
                       Login
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className='p-8 mt-12 mb-6 md:mb-0 md:mt-0 ml-0 md:ml-12 lg:w-2/3  justify-center'>
